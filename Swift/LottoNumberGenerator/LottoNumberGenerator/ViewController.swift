@@ -17,7 +17,6 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
     }
 
     @IBAction func generateLottoNumbers(_ sender: Any) {
@@ -50,12 +49,12 @@ class ViewController: UIViewController {
         
         random.sort()
         
-        self.lottoNumber1.text = String(random[0]+1)
-        self.lottoNumber2.text = String(random[1]+1)
-        self.lottoNumber3.text = String(random[2]+1)
-        self.lottoNumber4.text = String(random[3]+1)
-        self.lottoNumber5.text = String(random[4]+1)
-        self.lottoNumber6.text = String(random[5]+1)
+        self.lottoNumber1.text = String(random[0] + 1)
+        self.lottoNumber2.text = String(random[1] + 1)
+        self.lottoNumber3.text = String(random[2] + 1)
+        self.lottoNumber4.text = String(random[3] + 1)
+        self.lottoNumber5.text = String(random[4] + 1)
+        self.lottoNumber6.text = String(random[5] + 1)
     }
     
 }
