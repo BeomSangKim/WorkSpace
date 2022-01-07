@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="LottoNumberGenerator" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RWR-cd-r72">
+                                <rect key="frame" x="25" y="84" width="45" height="20"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="20" id="AW5-6W-dP1"/>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="45" id="SHl-IS-sP8"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ACx-67-Qm0">
+                                <rect key="frame" x="85" y="84" width="45" height="20"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="20" id="79i-65-ZML"/>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="45" id="sLF-ag-Gtd"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CoB-nw-1s5" userLabel="Lotto Number3">
+                                <rect key="frame" x="145" y="84" width="45" height="20"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="20" id="2Gu-JQ-j8u"/>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="45" id="bv7-lG-4RQ"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5KW-KE-AlK" userLabel="Lotto Number4">
+                                <rect key="frame" x="205" y="84" width="45" height="20"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="45" id="1Ym-bS-wOD"/>
+                                    <constraint firstAttribute="height" constant="20" id="CRz-0j-GaW"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ORA-k0-jTu">
+                                <rect key="frame" x="265" y="84" width="45" height="20"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="45" id="AKW-tN-6wk"/>
+                                    <constraint firstAttribute="height" constant="20" id="VaM-FB-gNc"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yCI-mu-Wnz">
+                                <rect key="frame" x="325" y="84" width="45" height="20"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="45" id="0Aa-OG-6tX"/>
+                                    <constraint firstAttribute="height" constant="20" id="MXo-fU-Neb"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="a0K-Mi-ahm">
+                                <rect key="frame" x="150" y="224" width="120" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="2Ry-5Z-tsP"/>
+                                    <constraint firstAttribute="width" constant="120" id="S8b-in-TyI"/>
+                                </constraints>
+                                <buttonConfiguration key="configuration" style="plain" title="로또 번호 생성" cornerStyle="small">
+                                    <backgroundConfiguration key="background">
+                                        <color key="backgroundColor" systemColor="tertiaryLabelColor"/>
+                                        <color key="strokeColor" systemColor="tertiaryLabelColor"/>
+                                    </backgroundConfiguration>
+                                    <fontDescription key="titleFontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="17"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="generateLottoNumbers:" destination="BYZ-38-t0r" eventType="touchUpInside" id="J3B-ck-fOr"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="yCI-mu-Wnz" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="40" id="2Yy-L0-JTs"/>
+                            <constraint firstItem="ORA-k0-jTu" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="40" id="6AU-tF-4By"/>
+                            <constraint firstItem="ORA-k0-jTu" firstAttribute="leading" secondItem="5KW-KE-AlK" secondAttribute="trailing" constant="15" id="8By-K9-UvH"/>
+                            <constraint firstItem="ACx-67-Qm0" firstAttribute="leading" secondItem="RWR-cd-r72" secondAttribute="trailing" constant="15" id="9Iv-jU-uhk"/>
+                            <constraint firstItem="RWR-cd-r72" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="40" id="CWk-VC-MZy"/>
+                            <constraint firstItem="a0K-Mi-ahm" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="150" id="DBH-Jl-Qwt"/>
+                            <constraint firstItem="5KW-KE-AlK" firstAttribute="leading" secondItem="CoB-nw-1s5" secondAttribute="trailing" constant="15" id="DPP-hk-h2J"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="yCI-mu-Wnz" secondAttribute="trailing" constant="44" id="F1c-b7-rWL"/>
+                            <constraint firstItem="CoB-nw-1s5" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="40" id="TEi-md-mIF"/>
+                            <constraint firstItem="5KW-KE-AlK" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="40" id="UgJ-wP-dgr"/>
+                            <constraint firstItem="ACx-67-Qm0" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="40" id="ex0-Uh-3Pf"/>
+                            <constraint firstItem="CoB-nw-1s5" firstAttribute="leading" secondItem="ACx-67-Qm0" secondAttribute="trailing" constant="15" id="fIv-u1-q5Y"/>
+                            <constraint firstItem="a0K-Mi-ahm" firstAttribute="top" secondItem="CoB-nw-1s5" secondAttribute="bottom" constant="120" id="rDw-kB-7zm"/>
+                            <constraint firstItem="yCI-mu-Wnz" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="ORA-k0-jTu" secondAttribute="trailing" constant="8" symbolic="YES" id="wIu-8a-WD7"/>
+                            <constraint firstItem="RWR-cd-r72" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="25" id="ydb-4a-73O"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="lottoNumber1" destination="RWR-cd-r72" id="OMf-3U-TBD"/>
+                        <outlet property="lottoNumber2" destination="ACx-67-Qm0" id="gHG-AI-wpQ"/>
+                        <outlet property="lottoNumber3" destination="CoB-nw-1s5" id="ZpD-Co-Jdu"/>
+                        <outlet property="lottoNumber4" destination="5KW-KE-AlK" id="bnK-gY-Cgp"/>
+                        <outlet property="lottoNumber5" destination="ORA-k0-jTu" id="cSg-hJ-4xO"/>
+                        <outlet property="lottoNumber6" destination="yCI-mu-Wnz" id="iB4-WU-YaC"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="18.840579710144929" y="67.633928571428569"/>
+        </scene>
+    </scenes>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="tertiaryLabelColor">
+            <color red="0.23529411764705882" green="0.23529411764705882" blue="0.2627450980392157" alpha="0.29999999999999999" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
+</document>
