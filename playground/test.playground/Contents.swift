@@ -1,39 +1,69 @@
-
 import Foundation
 
-struct NumbersForSort {
-    var originalNumber:Int = 0
-    var sortingNumber:Int = 0
+var isVisited:[Int] = [Int]()
+var numbersString:[String] = [String]()
+var answer = "0"
+var count = 0
+var answerSet:Set<Int> = Set<Int>()
+
+func isPrimeNumber(_ number: Int) {
+    
+    var res = true
+    if number <= 1 {
+        return
+    }
+    else if number <= 3 {
+        return
+    }
+    for i in 2..<number/2 {
+        if number % i == 0 {
+            res = false
+            break
+        }
+    }
+    if res == true {
+        answerSet.insert(number)
+    }
 }
 
-func solution(_ numbers:[Int]) -> String {
-    
-    var numbersForSort:NumbersForSort = NumbersForSort()
-    var numbersForSortArray:[NumbersForSort] = [NumbersForSort]()
-    var answer:String = ""
-    for i in numbers {
-        var i = i
-        var j = i
-        numbersForSort.originalNumber = i
-        while j > 10 {
-            j /= 10
+func permutation() {
+    var allVisited = true
+    for i in isVisited {
+        if i == 0 {
+            allVisited = false
+            break
         }
-        while i < 1000 {
-            i = i * 10 + j
-        }
-        numbersForSort.sortingNumber = i
-        numbersForSortArray.append(numbersForSort)
     }
-    print(numbersForSortArray)
-    let sortedArray = numbersForSortArray.sorted(by: {(numbersForSort1:NumbersForSort, numbersForSort2:NumbersForSort) -> Bool in
-        return numbersForSort1.sortingNumber > numbersForSort2.sortingNumber
-    })
-    print(sortedArray)
+    if allVisited == true {
+        isPrimeNumber(Int(answer)!)
+        return
+    }
     
-    for sortedNumber in sortedArray {
-        answer += "\(sortedNumber.originalNumber)"
+    for i in 0..<numbersString.count {
+        if isVisited [i] == 0 {
+            isVisited[i] = 1
+            answer = answer + numbersString[i]
+            permutation()
+            if answer != ""{
+                answer = String(answer[answer.index(answer.startIndex, offsetBy:0)..<answer.index(answer.endIndex, offsetBy:-1)])
+            }
+            permutation()
+            isVisited[i] = 0
+        }
     }
-    return answer
+    
+}
+func solution(_ numbers:String) -> Int {
+    
+    for i in 0..<numbers.count {
+        numbersString.append((String(numbers[numbers.index(numbers.startIndex, offsetBy: i)])))
+        isVisited.append(0)
+    }
+    print(numbersString)
+    print(isVisited)
+    permutation()
+
+    return answerSet.count
 }
 
-solution([3, 30, 34, 5, 9, 1000])
+solution("17")

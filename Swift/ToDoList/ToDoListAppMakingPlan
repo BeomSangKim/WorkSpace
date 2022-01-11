@@ -1,0 +1,16 @@
+make To-Do List App!
+
+function
+1. This App can add To Do Lists on the tableview.
+2. This App can delete To Do Lists at the tableview.
+3. This App can relocate To Do Lists on the tableview.
+4. This App saves To Do Lists in the data store so that the data is persisted even when the app is restarted.
+
+needs to learn
+1. UITableView 
+    - For Viewing To Do List
+    - Delegate
+    - DataSource
+2. UIALertController - For Alerts
+3. UserDefaults - For local data base
+
