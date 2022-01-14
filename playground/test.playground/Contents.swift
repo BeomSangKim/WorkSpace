@@ -1,69 +1,61 @@
 import Foundation
 
-var isVisited:[Int] = [Int]()
-var numbersString:[String] = [String]()
-var answer = "0"
-var count = 0
-var answerSet:Set<Int> = Set<Int>()
-
-func isPrimeNumber(_ number: Int) {
-    
-    var res = true
-    if number <= 1 {
-        return
-    }
-    else if number <= 3 {
-        return
-    }
-    for i in 2..<number/2 {
-        if number % i == 0 {
-            res = false
-            break
+var combinationSet:[[Int]] = [[Int]]()
+var currentSet:[Int] = [Int]()
+func makeCombinationSet(_ currentDepth:Int, _ count:Int) {
+    if currentDepth == count {
+        if currentSet == [] {
+            return
         }
+        combinationSet.append(currentSet)
+        return
     }
-    if res == true {
-        answerSet.insert(number)
-    }
+    
+    currentSet.append(currentDepth + 1)
+    makeCombinationSet(currentDepth + 1, count)
+    currentSet.remove(at: currentSet.count - 1)
+    makeCombinationSet(currentDepth + 1, count)
+    
+    
 }
 
-func permutation() {
-    var allVisited = true
-    for i in isVisited {
-        if i == 0 {
-            allVisited = false
-            break
-        }
-    }
-    if allVisited == true {
-        isPrimeNumber(Int(answer)!)
-        return
-    }
+func solution(_ relation:[[String]]) -> Int {
     
-    for i in 0..<numbersString.count {
-        if isVisited [i] == 0 {
-            isVisited[i] = 1
-            answer = answer + numbersString[i]
-            permutation()
-            if answer != ""{
-                answer = String(answer[answer.index(answer.startIndex, offsetBy:0)..<answer.index(answer.endIndex, offsetBy:-1)])
+    let count = relation[0].count
+    makeCombinationSet(0, count)
+    combinationSet.sort(by: {$0.count < $1.count})
+    
+    var answerSet:[Int] = [Int]()
+    
+    combinationLoop : for combination in combinationSet {
+        var currentAnswer = 0
+        for i in combination {
+            currentAnswer += (1 << i)
+        }
+        
+        for answer in answerSet {
+            if answer&currentAnswer == answer {
+                continue combinationLoop
             }
-            permutation()
-            isVisited[i] = 0
         }
+        
+        var dictionary:[String:Int] = [String:Int]()
+        for relationShip in relation {
+            var dicionaryKey = ""
+            for i in combination {
+                dicionaryKey += relationShip[i-1]
+            }
+            if dictionary[dicionaryKey] == 1 {
+                continue combinationLoop
+            }
+            dictionary[dicionaryKey] = 1
+        }
+        
+        answerSet.append(currentAnswer)
     }
     
-}
-func solution(_ numbers:String) -> Int {
-    
-    for i in 0..<numbers.count {
-        numbersString.append((String(numbers[numbers.index(numbers.startIndex, offsetBy: i)])))
-        isVisited.append(0)
-    }
-    print(numbersString)
-    print(isVisited)
-    permutation()
-
     return answerSet.count
 }
 
-solution("17")
+solution([["100","ryan","music","2"],["200","apeach","math","2"],["300","tube","computer","3"],["400","con","computer","4"],["500","muzi","music","3"],["600","apeach","music","2"]])
+print()
