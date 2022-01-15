@@ -19,7 +19,16 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        let customTableViewCellNib = UINib(nibName: String(describing: CustomTableViewCell.self), bundle: nil)
+        self.tableView.register(customTableViewCellNib, forCellReuseIdentifier: "customTableViewCellNib")
+        self.tableView.rowHeight = UITableView.automaticDimension
+        
+        
+        
         self.doneButton = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(tapDoneButton))
+        
+        // linking
         self.tableView.dataSource = self
         self.tableView.delegate = self
         self.loadTasks()
@@ -86,9 +95,10 @@ extension ViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "customTableViewCellNib", for: indexPath) as! CustomTableViewCell
         let task = self.tasks[indexPath.row]
-        cell.textLabel?.text = task.title
+        cell.userContentLabel.text = task.title
+        
         if task.done {
             cell.accessoryType = .checkmark
         }
