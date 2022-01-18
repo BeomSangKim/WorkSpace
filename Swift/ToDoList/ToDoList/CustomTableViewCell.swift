@@ -21,4 +21,7 @@ class CustomTableViewCell: UITableViewCell {
         userProfileImage.layer.cornerRadius = userProfileImage.frame.height / 2
         
     }
+    @IBAction func tapLabelEditButton(_ sender: UIButton) {
+        
+    }
 }
