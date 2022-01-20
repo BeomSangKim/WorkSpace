@@ -5,6 +5,7 @@ function
 2. This App can delete To Do Lists at the tableview.
 3. This App can relocate To Do Lists on the tableview.
 4. This App saves To Do Lists in the data store so that the data is persisted even when the app is restarted.
+5. This App has a priority function. Higher Priority List is upper than Lower Priority List.
 
 needs to learn
 1. UITableView 

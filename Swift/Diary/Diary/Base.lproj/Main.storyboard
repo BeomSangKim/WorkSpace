@@ -12,7 +12,6 @@
         <!--즐겨찾기-->
         <scene sceneID="Ec6-fJ-hCb">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="4yY-Tj-rlu" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <navigationController id="H9R-7R-6Py" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="즐겨찾기" image="star" catalog="system" selectedImage="star.fill" id="1Hx-QV-zuR"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="Qia-BT-HDW">
@@ -23,6 +22,7 @@
                         <segue destination="KYg-fZ-4cl" kind="relationship" relationship="rootViewController" id="9s1-1K-zVi"/>
                     </connections>
                 </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="4yY-Tj-rlu" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-658" y="832"/>
         </scene>
@@ -206,8 +206,18 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="일기 작성" id="1Zy-w7-Jre">
-                        <barButtonItem key="rightBarButtonItem" title="등록" id="bn5-1W-Efz"/>
+                        <barButtonItem key="rightBarButtonItem" title="등록" id="bn5-1W-Efz">
+                            <connections>
+                                <action selector="tapConfirmButton:" destination="e4J-KC-Fbr" id="3KI-WX-ccR"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="confirmButton" destination="bn5-1W-Efz" id="G8p-0L-9QS"/>
+                        <outlet property="contentsTextView" destination="EJX-s9-Czo" id="sd5-sF-Dha"/>
+                        <outlet property="dateTextField" destination="Uvk-wo-WWV" id="Hqv-pq-CmQ"/>
+                        <outlet property="titleTextField" destination="JI2-8X-eHI" id="hrZ-oR-7aX"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0wD-iK-75F" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
