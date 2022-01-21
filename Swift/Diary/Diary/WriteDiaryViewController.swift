@@ -7,6 +7,10 @@
 
 import UIKit
 
+protocol WriteDiaryViewDelegate : AnyObject {
+    func DidSelectRegister(diary: Diary)
+}
+
 class WriteDiaryViewController: UIViewController {
     @IBOutlet weak var titleTextField: UITextField!
     @IBOutlet weak var contentsTextView: UITextView!
@@ -15,6 +19,8 @@ class WriteDiaryViewController: UIViewController {
     
     private let datePicker = UIDatePicker()
     private var diaryDate: Date?
+    private let formatter = DateFormatter()
+    weak var delegate:WriteDiaryViewDelegate?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,6 +39,21 @@ class WriteDiaryViewController: UIViewController {
     }
     
     @IBAction func tapConfirmButton(_ sender: Any) {
+        guard let title = self.titleTextField.text else {return}
+        guard let contents = self.contentsTextView.text else {return}
+        guard let date = self.diaryDate else {return}
+        
+        let diary = Diary(title: title, contents: contents, date: date)
+        self.delegate?.DidSelectRegister(diary: diary)
+        self.navigationController?.popViewController(animated: true)
+    }
+    
+    @IBAction func tapDateTextField(_ sender: Any) {
+        formatter.dateFormat = "yyyy년 MM월 dd일(E)"
+        formatter.locale = Locale(identifier: "ko_KR")
+        self.diaryDate = datePicker.date
+        self.dateTextField.text = formatter.string(from: datePicker.date)
+        self.dateTextField.sendActions(for: .editingChanged)
     }
     
     private func configureBorderColor() {
@@ -61,6 +82,13 @@ class WriteDiaryViewController: UIViewController {
         self.datePicker.addTarget(self, action: #selector(datePickerHandler(_:)), for: .valueChanged)
         self.datePicker.locale = Locale(identifier: "ko_KR")
         self.dateTextField.inputView = self.datePicker
+        
+        let toolBar = UIToolbar(frame: CGRect(x: 0.0, y: 0.0, width: self.dateTextField.bounds.width, height: 44.0))
+        let flexible = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
+        let cancel = UIBarButtonItem(title: "Cancel", style: .plain, target: nil, action: #selector(tapCancel))
+        let barButton = UIBarButtonItem(title: "Done", style: .plain, target: target, action: #selector(tapDone))
+        toolBar.setItems([cancel, flexible, barButton], animated: false)
+        self.dateTextField.inputAccessoryView = toolBar
     }
     
     private func configureInputField() {
@@ -78,9 +106,6 @@ class WriteDiaryViewController: UIViewController {
     }
     
     @objc private func datePickerHandler(_ dataPicker: UIDatePicker) {
-        let formatter = DateFormatter()
-        formatter.dateFormat = "yyyy년 MM월 dd일(E)"
-        formatter.locale = Locale(identifier: "ko_KR")
         self.diaryDate = datePicker.date
         self.dateTextField.text = formatter.string(from: datePicker.date)
         self.dateTextField.sendActions(for: .editingChanged)
@@ -92,6 +117,14 @@ class WriteDiaryViewController: UIViewController {
     
     @objc private func dateTextFieldHandler(_ textField: UITextField) {
         self.validateInputData()
+    }
+    
+    @objc func tapCancel() {
+        self.view.endEditing(true)
+    }
+    
+    @objc func tapDone() {
+        self.view.endEditing(true)
     }
 }
 

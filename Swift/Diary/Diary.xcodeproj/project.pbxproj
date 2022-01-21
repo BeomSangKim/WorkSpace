@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F85E38F9279A894B00CC6C2B /* Diary.swift in Sources */ = {isa = PBXBuildFile; fileRef = F85E38F8279A894B00CC6C2B /* Diary.swift */; };
 		F8CDA48D279694E200E8AFB7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8CDA48C279694E200E8AFB7 /* AppDelegate.swift */; };
 		F8CDA48F279694E200E8AFB7 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8CDA48E279694E200E8AFB7 /* SceneDelegate.swift */; };
 		F8CDA491279694E200E8AFB7 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8CDA490279694E200E8AFB7 /* ViewController.swift */; };
@@ -21,6 +22,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		F85E38F8279A894B00CC6C2B /* Diary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Diary.swift; sourceTree = "<group>"; };
 		F8CDA489279694E200E8AFB7 /* Diary.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Diary.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F8CDA48C279694E200E8AFB7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F8CDA48E279694E200E8AFB7 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -75,6 +77,7 @@
 				F8CDA4A2279698EC00E8AFB7 /* FavoritesViewController.swift */,
 				F8CDA4A62796A31700E8AFB7 /* WriteDiaryViewController.swift */,
 				F8CDA4A82796A40D00E8AFB7 /* DiaryDetailViewController.swift */,
+				F85E38F8279A894B00CC6C2B /* Diary.swift */,
 				F8CDA495279694E200E8AFB7 /* Assets.xcassets */,
 				F8CDA497279694E200E8AFB7 /* LaunchScreen.storyboard */,
 				F8CDA49A279694E200E8AFB7 /* Info.plist */,
@@ -158,6 +161,7 @@
 				F8CDA4A527969A7B00E8AFB7 /* FavoritesCell.swift in Sources */,
 				F8CDA48D279694E200E8AFB7 /* AppDelegate.swift in Sources */,
 				F8CDA48F279694E200E8AFB7 /* SceneDelegate.swift in Sources */,
+				F85E38F9279A894B00CC6C2B /* Diary.swift in Sources */,
 				F8CDA4A92796A40D00E8AFB7 /* DiaryDetailViewController.swift in Sources */,
 				F8CDA4A12796987000E8AFB7 /* DiaryCell.swift in Sources */,
 				F8CDA4A3279698EC00E8AFB7 /* FavoritesViewController.swift in Sources */,

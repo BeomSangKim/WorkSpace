@@ -110,6 +110,10 @@
                                             </constraints>
                                         </collectionViewCellContentView>
                                         <size key="customSize" width="180" height="200"/>
+                                        <connections>
+                                            <outlet property="dateLable" destination="JeW-4Z-o1i" id="TZB-uH-CID"/>
+                                            <outlet property="titleLabel" destination="Vga-V0-7G2" id="Ise-mD-mLs"/>
+                                        </connections>
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
@@ -130,6 +134,9 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="collectionView" destination="t5B-mT-Kya" id="Bx3-f8-cqs"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
@@ -180,6 +187,9 @@
                                 <rect key="frame" x="24" y="393" width="380" height="34"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <action selector="tapDateTextField:" destination="e4J-KC-Fbr" eventType="touchDown" id="Iuu-8I-bL8"/>
+                                </connections>
                             </textField>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="gJD-3Y-Xgb"/>
@@ -226,7 +236,7 @@
         <!--Diary Detail View Controller-->
         <scene sceneID="c1q-oT-cuR">
             <objects>
-                <viewController id="daP-WE-nNO" customClass="DiaryDetailViewController" customModule="Diary" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="DiaryDetailViewController" id="daP-WE-nNO" customClass="DiaryDetailViewController" customModule="Diary" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="gBw-Of-EjC">
                         <rect key="frame" x="0.0" y="0.0" width="428" height="926"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -282,25 +292,32 @@
                                 </subviews>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" spacing="50" translatesAutoresizingMaskIntoConstraints="NO" id="Qcq-xW-W3B">
-                                <rect key="frame" x="142.66666666666666" y="427.66666666666669" width="142.99999999999997" height="30"/>
+                                <rect key="frame" x="159" y="427.66666666666669" width="110" height="30"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="stS-Is-hq9">
-                                        <rect key="frame" x="0.0" y="0.0" width="48" height="30"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="30" height="30"/>
                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                        <state key="normal" title="Modify"/>
+                                        <state key="normal" title="수정"/>
+                                        <connections>
+                                            <action selector="tapEditButton:" destination="daP-WE-nNO" eventType="touchUpInside" id="6nL-Ql-rwr"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PuN-at-oow">
-                                        <rect key="frame" x="98" y="0.0" width="45" height="30"/>
+                                        <rect key="frame" x="80" y="0.0" width="30" height="30"/>
                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                        <state key="normal" title="Delete">
+                                        <state key="normal" title="삭제">
                                             <color key="titleColor" systemColor="systemRedColor"/>
                                         </state>
+                                        <connections>
+                                            <action selector="tapDeleteButton:" destination="daP-WE-nNO" eventType="touchUpInside" id="f4l-Ww-bM2"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                             </stackView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="UsH-qI-zHy"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <accessibility key="accessibilityConfiguration" identifier="DiaryDetailViewController"/>
                         <constraints>
                             <constraint firstItem="UsH-qI-zHy" firstAttribute="trailing" secondItem="iLt-ot-AYN" secondAttribute="trailing" constant="24" id="21Q-F6-lC5"/>
                             <constraint firstItem="iLt-ot-AYN" firstAttribute="leading" secondItem="UsH-qI-zHy" secondAttribute="leading" constant="24" id="5AG-v7-NxX"/>
@@ -318,6 +335,11 @@
                             <constraint firstItem="1Fe-2S-J0w" firstAttribute="leading" secondItem="UsH-qI-zHy" secondAttribute="leading" constant="24" id="zat-LK-WSF"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="contentsTextView" destination="RaH-Sx-KjS" id="VFh-qg-AVm"/>
+                        <outlet property="dateLabel" destination="UPb-0m-MyV" id="OXc-IC-x83"/>
+                        <outlet property="titleLabel" destination="tL4-vz-L0f" id="Z76-hA-b9K"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XxC-o2-EdX" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
