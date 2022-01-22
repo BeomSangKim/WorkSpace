@@ -7,6 +7,12 @@
 
 import UIKit
 
+enum DiaryEdiorMode {
+    case new
+    case edit(IndexPath, Diary)
+}
+
+
 protocol WriteDiaryViewDelegate : AnyObject {
     func DidSelectRegister(diary: Diary)
 }
@@ -16,17 +22,20 @@ class WriteDiaryViewController: UIViewController {
     @IBOutlet weak var contentsTextView: UITextView!
     @IBOutlet weak var dateTextField: UITextField!
     @IBOutlet weak var confirmButton: UIBarButtonItem!
+    @IBOutlet weak var viewControllerTitle: UINavigationItem!
     
     private let datePicker = UIDatePicker()
     private var diaryDate: Date?
     private let formatter = DateFormatter()
-    weak var delegate:WriteDiaryViewDelegate?
+    weak var delegate: WriteDiaryViewDelegate?
+    var diaryEditorMode: DiaryEdiorMode = .new
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.configureBorderColor()
         self.configureDatePicker()
         self.configureInputField()
+        self.configureEditMode()
         self.confirmButton.isEnabled = false
     }
     
@@ -42,15 +51,32 @@ class WriteDiaryViewController: UIViewController {
         guard let title = self.titleTextField.text else {return}
         guard let contents = self.contentsTextView.text else {return}
         guard let date = self.diaryDate else {return}
-        
         let diary = Diary(title: title, contents: contents, date: date)
-        self.delegate?.DidSelectRegister(diary: diary)
+        
+        switch self.diaryEditorMode {
+        case .new:
+            self.delegate?.DidSelectRegister(diary: diary)
+        case let .edit(indexPath, _):
+            NotificationCenter.default.post(
+                name: NSNotification.Name("editDiary"),
+                object: diary,
+                userInfo: [
+                    "indexPath.row":indexPath.row
+                ])
+        }
+        
         self.navigationController?.popViewController(animated: true)
     }
     
     @IBAction func tapDateTextField(_ sender: Any) {
         formatter.dateFormat = "yyyy년 MM월 dd일(E)"
         formatter.locale = Locale(identifier: "ko_KR")
+        switch self.diaryEditorMode {
+        case .edit(_, _):
+            datePicker.date = diaryDate!
+        default:
+            break
+        }
         self.diaryDate = datePicker.date
         self.dateTextField.text = formatter.string(from: datePicker.date)
         self.dateTextField.sendActions(for: .editingChanged)
@@ -103,6 +129,29 @@ class WriteDiaryViewController: UIViewController {
             !(self.dateTextField.text?.isEmpty      ?? true) &&
             !(self.contentsTextView.text?.isEmpty   ?? true)
         print(self.confirmButton.isEnabled)
+    }
+    
+    private func configureEditMode() {
+        switch self.diaryEditorMode {
+        case let .edit(_, diary):
+            self.titleTextField.text = diary.title
+            self.contentsTextView.text = diary.contents
+            self.dateTextField.text = self.dateToString(date: diary.date)
+            self.diaryDate = diary.date
+            self.confirmButton.title = "수정"
+            self.viewControllerTitle.title = "일기 수정"
+            
+        case .new:
+            self.confirmButton.title = "확인"
+            self.viewControllerTitle.title = "일기 작성"
+        }
+    }
+    
+    private func dateToString(date: Date) -> String {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "yyyy년 MM월 dd일(E)"
+        formatter.locale = Locale(identifier: "ko_KR")
+        return formatter.string(from: date)
     }
     
     @objc private func datePickerHandler(_ dataPicker: UIDatePicker) {

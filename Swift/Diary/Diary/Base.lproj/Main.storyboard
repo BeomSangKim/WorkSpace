@@ -145,7 +145,7 @@
         <!--일기 작성-->
         <scene sceneID="2It-Dl-KL1">
             <objects>
-                <viewController id="e4J-KC-Fbr" customClass="WriteDiaryViewController" customModule="Diary" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="WriteDiaryViewController" id="e4J-KC-Fbr" customClass="WriteDiaryViewController" customModule="Diary" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="7L6-mq-hu0">
                         <rect key="frame" x="0.0" y="0.0" width="428" height="926"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -348,39 +348,39 @@
         <!--Favorites View Controller-->
         <scene sceneID="mqh-Vi-1GE">
             <objects>
-                <viewController id="KYg-fZ-4cl" customClass="FavoritesViewController" sceneMemberID="viewController">
+                <viewController id="KYg-fZ-4cl" customClass="FavoritesViewController" customModule="Diary" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="LC2-OF-zKl">
                         <rect key="frame" x="0.0" y="0.0" width="428" height="926"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="iWV-mr-DsZ">
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="cwe-ru-dUZ">
                                 <rect key="frame" x="0.0" y="88" width="428" height="755"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="I94-ih-I2F">
-                                    <size key="itemSize" width="413" height="80"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="0oc-4P-JfM">
+                                    <size key="itemSize" width="428" height="80"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="favorites cell" id="ILr-rY-J1k" customClass="FavoritesCell" customModule="Diary" customModuleProvider="target">
-                                        <rect key="frame" x="7.666666666666667" y="0.0" width="413" height="80"/>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="Favorites Cell" id="HUQ-F9-sJi" customClass="FavoritesCell" customModule="Diary" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="428" height="80"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="Lx7-8z-Idf">
-                                            <rect key="frame" x="0.0" y="0.0" width="413" height="80"/>
+                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="X4Y-YO-CLd">
+                                            <rect key="frame" x="0.0" y="0.0" width="428" height="80"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="Xze-21-Sfs">
-                                                    <rect key="frame" x="24" y="13.666666666666668" width="365" height="52.666666666666657"/>
+                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="IU1-2I-Tfg">
+                                                    <rect key="frame" x="24" y="13.666666666666668" width="380" height="52.666666666666657"/>
                                                     <subviews>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Htv-H6-ku2">
-                                                            <rect key="frame" x="0.0" y="0.0" width="365" height="20.333333333333332"/>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Lxb-f0-825">
+                                                            <rect key="frame" x="0.0" y="0.0" width="380" height="20.333333333333332"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XRV-Th-5p0" customClass="Fa">
-                                                            <rect key="frame" x="0.0" y="32.333333333333336" width="365" height="20.333333333333336"/>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dfU-HF-nQo">
+                                                            <rect key="frame" x="0.0" y="32.333333333333336" width="380" height="20.333333333333336"/>
                                                             <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
@@ -389,12 +389,16 @@
                                                 </stackView>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstAttribute="trailing" secondItem="Xze-21-Sfs" secondAttribute="trailing" constant="24" id="4Ok-jk-JlD"/>
-                                                <constraint firstItem="Xze-21-Sfs" firstAttribute="centerY" secondItem="Lx7-8z-Idf" secondAttribute="centerY" id="igO-co-Gpl"/>
-                                                <constraint firstItem="Xze-21-Sfs" firstAttribute="leading" secondItem="Lx7-8z-Idf" secondAttribute="leading" constant="24" id="uYo-cU-0sv"/>
+                                                <constraint firstItem="IU1-2I-Tfg" firstAttribute="centerY" secondItem="X4Y-YO-CLd" secondAttribute="centerY" id="Gyb-XL-KmF"/>
+                                                <constraint firstAttribute="trailing" secondItem="IU1-2I-Tfg" secondAttribute="trailing" constant="24" id="Tpv-6q-Jhr"/>
+                                                <constraint firstItem="IU1-2I-Tfg" firstAttribute="leading" secondItem="X4Y-YO-CLd" secondAttribute="leading" constant="24" id="rcG-BA-BWk"/>
                                             </constraints>
                                         </collectionViewCellContentView>
-                                        <size key="customSize" width="413" height="80"/>
+                                        <size key="customSize" width="428" height="80"/>
+                                        <connections>
+                                            <outlet property="dateLabel" destination="dfU-HF-nQo" id="vD9-Ns-YnD"/>
+                                            <outlet property="titleLabel" destination="Lxb-f0-825" id="xCd-DL-MIE"/>
+                                        </connections>
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
@@ -402,13 +406,16 @@
                         <viewLayoutGuide key="safeArea" id="EQY-ZK-Gtx"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="EQY-ZK-Gtx" firstAttribute="trailing" secondItem="iWV-mr-DsZ" secondAttribute="trailing" id="6uP-w7-Era"/>
-                            <constraint firstItem="iWV-mr-DsZ" firstAttribute="leading" secondItem="EQY-ZK-Gtx" secondAttribute="leading" id="6yF-ho-Mba"/>
-                            <constraint firstItem="iWV-mr-DsZ" firstAttribute="top" secondItem="EQY-ZK-Gtx" secondAttribute="top" id="PFk-Bf-1Op"/>
-                            <constraint firstItem="EQY-ZK-Gtx" firstAttribute="bottom" secondItem="iWV-mr-DsZ" secondAttribute="bottom" id="dl9-pc-19S"/>
+                            <constraint firstItem="cwe-ru-dUZ" firstAttribute="top" secondItem="EQY-ZK-Gtx" secondAttribute="top" id="4DK-0p-BXn"/>
+                            <constraint firstItem="EQY-ZK-Gtx" firstAttribute="trailing" secondItem="cwe-ru-dUZ" secondAttribute="trailing" id="FIN-cS-JVm"/>
+                            <constraint firstItem="cwe-ru-dUZ" firstAttribute="leading" secondItem="EQY-ZK-Gtx" secondAttribute="leading" id="a0N-oP-6Lu"/>
+                            <constraint firstItem="EQY-ZK-Gtx" firstAttribute="bottom" secondItem="cwe-ru-dUZ" secondAttribute="bottom" id="wWL-r8-Pem"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="iq2-p3-Qjv"/>
+                    <connections>
+                        <outlet property="favoritesCollectionView" destination="cwe-ru-dUZ" id="Mqu-pM-C8d"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PHg-xK-0pW" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

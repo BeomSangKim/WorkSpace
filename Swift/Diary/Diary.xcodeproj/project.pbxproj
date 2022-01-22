@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F85A1039279C728E007BE942 /* FavoritesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F85A1038279C728E007BE942 /* FavoritesViewController.swift */; };
 		F85E38F9279A894B00CC6C2B /* Diary.swift in Sources */ = {isa = PBXBuildFile; fileRef = F85E38F8279A894B00CC6C2B /* Diary.swift */; };
 		F8CDA48D279694E200E8AFB7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8CDA48C279694E200E8AFB7 /* AppDelegate.swift */; };
 		F8CDA48F279694E200E8AFB7 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8CDA48E279694E200E8AFB7 /* SceneDelegate.swift */; };
@@ -15,13 +16,13 @@
 		F8CDA496279694E200E8AFB7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F8CDA495279694E200E8AFB7 /* Assets.xcassets */; };
 		F8CDA499279694E200E8AFB7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F8CDA497279694E200E8AFB7 /* LaunchScreen.storyboard */; };
 		F8CDA4A12796987000E8AFB7 /* DiaryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8CDA4A02796987000E8AFB7 /* DiaryCell.swift */; };
-		F8CDA4A3279698EC00E8AFB7 /* FavoritesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8CDA4A2279698EC00E8AFB7 /* FavoritesViewController.swift */; };
 		F8CDA4A527969A7B00E8AFB7 /* FavoritesCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8CDA4A427969A7B00E8AFB7 /* FavoritesCell.swift */; };
 		F8CDA4A72796A31700E8AFB7 /* WriteDiaryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8CDA4A62796A31700E8AFB7 /* WriteDiaryViewController.swift */; };
 		F8CDA4A92796A40D00E8AFB7 /* DiaryDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8CDA4A82796A40D00E8AFB7 /* DiaryDetailViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		F85A1038279C728E007BE942 /* FavoritesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesViewController.swift; sourceTree = "<group>"; };
 		F85E38F8279A894B00CC6C2B /* Diary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Diary.swift; sourceTree = "<group>"; };
 		F8CDA489279694E200E8AFB7 /* Diary.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Diary.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F8CDA48C279694E200E8AFB7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -32,7 +33,6 @@
 		F8CDA498279694E200E8AFB7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F8CDA49A279694E200E8AFB7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F8CDA4A02796987000E8AFB7 /* DiaryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiaryCell.swift; sourceTree = "<group>"; };
-		F8CDA4A2279698EC00E8AFB7 /* FavoritesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesViewController.swift; sourceTree = "<group>"; };
 		F8CDA4A427969A7B00E8AFB7 /* FavoritesCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesCell.swift; sourceTree = "<group>"; };
 		F8CDA4A62796A31700E8AFB7 /* WriteDiaryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WriteDiaryViewController.swift; sourceTree = "<group>"; };
 		F8CDA4A82796A40D00E8AFB7 /* DiaryDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiaryDetailViewController.swift; sourceTree = "<group>"; };
@@ -71,12 +71,12 @@
 				F8CDA48C279694E200E8AFB7 /* AppDelegate.swift */,
 				F8CDA48E279694E200E8AFB7 /* SceneDelegate.swift */,
 				F8CDA492279694E200E8AFB7 /* Main.storyboard */,
+				F8CDA490279694E200E8AFB7 /* ViewController.swift */,
+				F85A1038279C728E007BE942 /* FavoritesViewController.swift */,
+				F8CDA4A82796A40D00E8AFB7 /* DiaryDetailViewController.swift */,
+				F8CDA4A62796A31700E8AFB7 /* WriteDiaryViewController.swift */,
 				F8CDA4A427969A7B00E8AFB7 /* FavoritesCell.swift */,
 				F8CDA4A02796987000E8AFB7 /* DiaryCell.swift */,
-				F8CDA490279694E200E8AFB7 /* ViewController.swift */,
-				F8CDA4A2279698EC00E8AFB7 /* FavoritesViewController.swift */,
-				F8CDA4A62796A31700E8AFB7 /* WriteDiaryViewController.swift */,
-				F8CDA4A82796A40D00E8AFB7 /* DiaryDetailViewController.swift */,
 				F85E38F8279A894B00CC6C2B /* Diary.swift */,
 				F8CDA495279694E200E8AFB7 /* Assets.xcassets */,
 				F8CDA497279694E200E8AFB7 /* LaunchScreen.storyboard */,
@@ -157,6 +157,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F8CDA491279694E200E8AFB7 /* ViewController.swift in Sources */,
+				F85A1039279C728E007BE942 /* FavoritesViewController.swift in Sources */,
 				F8CDA4A72796A31700E8AFB7 /* WriteDiaryViewController.swift in Sources */,
 				F8CDA4A527969A7B00E8AFB7 /* FavoritesCell.swift in Sources */,
 				F8CDA48D279694E200E8AFB7 /* AppDelegate.swift in Sources */,
@@ -164,7 +165,6 @@
 				F85E38F9279A894B00CC6C2B /* Diary.swift in Sources */,
 				F8CDA4A92796A40D00E8AFB7 /* DiaryDetailViewController.swift in Sources */,
 				F8CDA4A12796987000E8AFB7 /* DiaryCell.swift in Sources */,
-				F8CDA4A3279698EC00E8AFB7 /* FavoritesViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
