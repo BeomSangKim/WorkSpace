@@ -16,11 +16,29 @@ class FavoritesViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.configureFavoritesCollectionView()
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
         self.loadFavoritesDiaryList()
+        
+        // Add Observer
+        NotificationCenter.default.addObserver(
+            self,
+            selector: #selector(editDiaryNotification(_:)),
+            name: NSNotification.Name("EditDiary"),
+            object: nil
+        )
+        
+        NotificationCenter.default.addObserver(
+            self,
+            selector: #selector(favoritesDiaryNotification(_:)),
+            name: NSNotification.Name("FavoritesDiary"),
+            object: nil
+        )
+        
+        NotificationCenter.default.addObserver(
+            self,
+            selector: #selector(deleteDiaryNotification(_:)),
+            name: NSNotification.Name("DeleteDiary"),
+            object: nil
+        )
     }
     
     private func configureFavoritesCollectionView() {
@@ -34,17 +52,17 @@ class FavoritesViewController: UIViewController {
         let userDefaults = UserDefaults.standard
         guard let data = userDefaults.object(forKey: "diaryList") as? [[String: Any]] else { return }
         self.favoritesDiaryList = data.compactMap {
+            guard let uuidString =  $0["uuidString"]    as? String else { return nil }
             guard let title =       $0["title"]         as? String else { return nil }
             guard let contents =    $0["contents"]      as? String else { return nil }
             guard let date =        $0["date"]          as? Date   else { return nil }
             guard let isFavorites = $0["isFavorites"]   as? Bool   else { return nil }
-            return Diary(title: title, contents: contents, date: date, isFavorites: isFavorites)
+            return Diary(uuidString: uuidString, title: title, contents: contents, date: date, isFavorites: isFavorites)
         }.filter({
             return $0.isFavorites == true
         }).sorted(by: {
             $0.date.compare($1.date) == .orderedDescending
         })
-        print(favoritesDiaryList.count)
     }
     
     private func dateToString(date: Date) -> String {
@@ -52,6 +70,42 @@ class FavoritesViewController: UIViewController {
         formatter.dateFormat = "yyyy년 MM월 dd일(E)"
         formatter.locale = Locale(identifier: "ko_KR")
         return formatter.string(from: date)
+    }
+    
+    @objc func editDiaryNotification(_ notification: Notification) {
+        guard let diary = notification.object as? Diary else {return}
+        guard let index = favoritesDiaryList.firstIndex(where: {$0.uuidString == diary.uuidString}) else { return }
+        self.favoritesDiaryList[index] = diary
+        self.favoritesDiaryList.sort(by: {
+            $0.date.compare($1.date) == .orderedDescending
+        })
+        self.favoritesCollectionView.reloadData()
+    }
+    
+    @objc func favoritesDiaryNotification(_ notification: Notification) {
+        guard let favoritesDiary    = notification.object           as? [String : Any]  else {return}
+        guard let diary             = favoritesDiary["diary"]       as? Diary           else {return}
+        guard let isFavorites       = favoritesDiary["isFavorites"] as? Bool            else {return}
+        guard let uuidString        = favoritesDiary["uuidString"]  as? String          else {return}
+        if isFavorites {
+            self.favoritesDiaryList.append(diary)
+            self.favoritesDiaryList.sort(by: {
+                $0.date.compare($1.date) == .orderedDescending
+            })
+            self.favoritesCollectionView.reloadData()
+        }
+        else {
+            guard let index = self.favoritesDiaryList.firstIndex(where: {$0.uuidString == uuidString}) else {return}
+            self.favoritesDiaryList.remove(at: index)
+            self.favoritesCollectionView.deleteItems(at: [IndexPath(row: index, section: 0)])
+        }
+    }
+    
+    @objc func deleteDiaryNotification(_ notification: Notification) {
+        guard let uuidString = notification.object as? String else {return}
+        guard let index = self.favoritesDiaryList.firstIndex(where: {$0.uuidString == uuidString}) else {return}
+        self.favoritesDiaryList.remove(at: index)
+        self.favoritesCollectionView.deleteItems(at: [IndexPath(row: index, section: 0)])
     }
 }
 
@@ -75,3 +129,12 @@ extension FavoritesViewController: UICollectionViewDelegateFlowLayout {
     }
 }
 
+extension FavoritesViewController: UICollectionViewDelegate {
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        guard let diaryDetailViewController = self.storyboard?.instantiateViewController(withIdentifier: "DiaryDetailViewController") as? DiaryDetailViewController else {return}
+        let diary = self.favoritesDiaryList[indexPath.row]
+        diaryDetailViewController.diary = diary
+        diaryDetailViewController.indexPath = indexPath
+        self.navigationController?.pushViewController(diaryDetailViewController, animated: true)
+    }
+}

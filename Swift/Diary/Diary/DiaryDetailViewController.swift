@@ -9,7 +9,6 @@ import UIKit
 
 protocol DiaryDetailViewDelegate: AnyObject {
     func didSelectDelete(indexPath: IndexPath)
-    func didSelectFavorites(indexPath: IndexPath, isFavorites: Bool)
 }
 
 class DiaryDetailViewController: UIViewController {
@@ -20,14 +19,18 @@ class DiaryDetailViewController: UIViewController {
     
     var favoritesButton:UIBarButtonItem?
     
-    weak var delegate: DiaryDetailViewDelegate?
-    
     var diary: Diary?
     var indexPath: IndexPath?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.configureView()
+        NotificationCenter.default.addObserver(
+            self,
+            selector: #selector(favoritesDiaryNotiofication(_:)),
+            name: NSNotification.Name("FavoritesDiary"),
+            object: nil
+        )
     }
 
     @IBAction func tapEditButton(_ sender: UIButton) {
@@ -38,14 +41,19 @@ class DiaryDetailViewController: UIViewController {
         NotificationCenter.default.addObserver(
             self,
             selector: #selector(editDiaryNotification(_:)),
-            name: NSNotification.Name("editDiary"),
-            object: nil)
+            name: NSNotification.Name("EditDiary"),
+            object: nil
+        )
         self.navigationController?.pushViewController(editDiaryViewController, animated: true)
     }
     
     @IBAction func tapDeleteButton(_ sender: UIButton) {
-        guard let indexPath = self.indexPath else {return}
-        self.delegate?.didSelectDelete(indexPath: indexPath)
+        guard let uuidString = self.diary?.uuidString else {return}
+        NotificationCenter.default.post(
+            name: NSNotification.Name("DeleteDiary"),
+            object: uuidString,
+            userInfo: nil
+        )
         self.navigationController?.popViewController(animated: true)
     }
     
@@ -76,12 +84,33 @@ class DiaryDetailViewController: UIViewController {
     
     @objc func tapFavoritesButton() {
         guard let isFavorites = self.diary?.isFavorites else {return}
+        
         self.favoritesButton?.image = isFavorites ? UIImage(systemName: "star") : UIImage(systemName: "star.fill")
         self.favoritesButton?.tintColor = isFavorites ? .systemGray3 : .systemYellow
         
         self.diary?.isFavorites = !isFavorites
-        guard let indexPath = self.indexPath else {return}
-        self.delegate?.didSelectFavorites(indexPath: indexPath, isFavorites: self.diary?.isFavorites ?? false)
+        
+        NotificationCenter.default.post(
+            name: NSNotification.Name("FavoritesDiary"),
+            object: [
+                "diary" : self.diary,
+                "isFavorites": self.diary?.isFavorites ?? false,
+                "uuidString": self.diary?.uuidString
+            ],
+            userInfo: nil
+        )
+    }
+    
+    @objc func favoritesDiaryNotiofication(_ notification: Notification) {
+        guard let favoritesDiary = notification.object as? [String : Any] else {return}
+        guard let diary         = favoritesDiary["diary"]       as? Diary   else {return}
+        guard let isFavorites   = favoritesDiary["isFavorites"] as? Bool    else {return}
+        guard let uuidString    = favoritesDiary["uuidString"]  as? String  else {return}
+        
+        if diary.uuidString == uuidString {
+            self.diary?.isFavorites = isFavorites
+            self.configureView()
+        }
     }
     
     deinit {

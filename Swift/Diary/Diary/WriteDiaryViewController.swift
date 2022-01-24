@@ -48,21 +48,21 @@ class WriteDiaryViewController: UIViewController {
     }
     
     @IBAction func tapConfirmButton(_ sender: Any) {
-        guard let title = self.titleTextField.text else {return}
-        guard let contents = self.contentsTextView.text else {return}
-        guard let date = self.diaryDate else {return}
-        let diary = Diary(title: title, contents: contents, date: date)
+        guard let title     = self.titleTextField.text      else {return}
+        guard let contents  = self.contentsTextView.text    else {return}
+        guard let date      = self.diaryDate                else {return}
         
         switch self.diaryEditorMode {
         case .new:
+            let diary = Diary(uuidString: UUID().uuidString, title: title, contents: contents, date: date)
             self.delegate?.DidSelectRegister(diary: diary)
-        case let .edit(indexPath, _):
+        case let .edit(_, diary):
+            let diary = Diary(uuidString: diary.uuidString, title: title, contents: contents, date: date, isFavorites: diary.isFavorites)
             NotificationCenter.default.post(
-                name: NSNotification.Name("editDiary"),
+                name: NSNotification.Name("EditDiary"),
                 object: diary,
-                userInfo: [
-                    "indexPath.row":indexPath.row
-                ])
+                userInfo: nil
+            )
         }
         
         self.navigationController?.popViewController(animated: true)
@@ -134,16 +134,16 @@ class WriteDiaryViewController: UIViewController {
     private func configureEditMode() {
         switch self.diaryEditorMode {
         case let .edit(_, diary):
-            self.titleTextField.text = diary.title
-            self.contentsTextView.text = diary.contents
-            self.dateTextField.text = self.dateToString(date: diary.date)
-            self.diaryDate = diary.date
-            self.confirmButton.title = "수정"
-            self.viewControllerTitle.title = "일기 수정"
+            self.titleTextField.text        = diary.title
+            self.contentsTextView.text      = diary.contents
+            self.dateTextField.text         = self.dateToString(date: diary.date)
+            self.diaryDate                  = diary.date
+            self.confirmButton.title        = "수정"
+            self.viewControllerTitle.title  = "일기 수정"
             
         case .new:
-            self.confirmButton.title = "확인"
-            self.viewControllerTitle.title = "일기 작성"
+            self.confirmButton.title        = "확인"
+            self.viewControllerTitle.title  = "일기 작성"
         }
     }
     

@@ -227,6 +227,7 @@
                         <outlet property="contentsTextView" destination="EJX-s9-Czo" id="sd5-sF-Dha"/>
                         <outlet property="dateTextField" destination="Uvk-wo-WWV" id="Hqv-pq-CmQ"/>
                         <outlet property="titleTextField" destination="JI2-8X-eHI" id="hrZ-oR-7aX"/>
+                        <outlet property="viewControllerTitle" destination="1Zy-w7-Jre" id="sXa-MQ-eoR"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0wD-iK-75F" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
