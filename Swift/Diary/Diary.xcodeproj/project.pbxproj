@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		F85A1039279C728E007BE942 /* FavoritesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F85A1038279C728E007BE942 /* FavoritesViewController.swift */; };
 		F85E38F9279A894B00CC6C2B /* Diary.swift in Sources */ = {isa = PBXBuildFile; fileRef = F85E38F8279A894B00CC6C2B /* Diary.swift */; };
+		F897A214279ED4B800DA3FDA /* DiaryTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F897A213279ED4B800DA3FDA /* DiaryTabBarController.swift */; };
 		F8CDA48D279694E200E8AFB7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8CDA48C279694E200E8AFB7 /* AppDelegate.swift */; };
 		F8CDA48F279694E200E8AFB7 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8CDA48E279694E200E8AFB7 /* SceneDelegate.swift */; };
 		F8CDA491279694E200E8AFB7 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8CDA490279694E200E8AFB7 /* ViewController.swift */; };
@@ -24,6 +25,7 @@
 /* Begin PBXFileReference section */
 		F85A1038279C728E007BE942 /* FavoritesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesViewController.swift; sourceTree = "<group>"; };
 		F85E38F8279A894B00CC6C2B /* Diary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Diary.swift; sourceTree = "<group>"; };
+		F897A213279ED4B800DA3FDA /* DiaryTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiaryTabBarController.swift; sourceTree = "<group>"; };
 		F8CDA489279694E200E8AFB7 /* Diary.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Diary.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F8CDA48C279694E200E8AFB7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F8CDA48E279694E200E8AFB7 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -75,6 +77,7 @@
 				F85A1038279C728E007BE942 /* FavoritesViewController.swift */,
 				F8CDA4A82796A40D00E8AFB7 /* DiaryDetailViewController.swift */,
 				F8CDA4A62796A31700E8AFB7 /* WriteDiaryViewController.swift */,
+				F897A213279ED4B800DA3FDA /* DiaryTabBarController.swift */,
 				F8CDA4A427969A7B00E8AFB7 /* FavoritesCell.swift */,
 				F8CDA4A02796987000E8AFB7 /* DiaryCell.swift */,
 				F85E38F8279A894B00CC6C2B /* Diary.swift */,
@@ -161,6 +164,7 @@
 				F8CDA4A72796A31700E8AFB7 /* WriteDiaryViewController.swift in Sources */,
 				F8CDA4A527969A7B00E8AFB7 /* FavoritesCell.swift in Sources */,
 				F8CDA48D279694E200E8AFB7 /* AppDelegate.swift in Sources */,
+				F897A214279ED4B800DA3FDA /* DiaryTabBarController.swift in Sources */,
 				F8CDA48F279694E200E8AFB7 /* SceneDelegate.swift in Sources */,
 				F85E38F9279A894B00CC6C2B /* Diary.swift in Sources */,
 				F8CDA4A92796A40D00E8AFB7 /* DiaryDetailViewController.swift in Sources */,
